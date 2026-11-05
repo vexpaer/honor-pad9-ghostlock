@@ -137,6 +137,20 @@ root，并在当前开机内加载一套可工作的 KernelSU；全程不写 `bo
 下载和编译临时文件都会留在仓库内的 `bundle/` 与 `.cache/`；脚本不会把依赖
 安装到系统盘。
 
+### Windows 双击启动
+
+如果仓库和 NDK 已经在本机，直接双击 [`run-wireless.bat`](run-wireless.bat)。
+它会：
+
+- 自动查找 `adb`，先尝试上次的无线目标，再通过 mDNS 查找
+  `_adb-tls-connect._tcp`；
+- 在任何操作前校验 HEY2-W09 的精确内核和系统版本；
+- 缺少运行时包时自动下载，缺少本地二进制时自动构建；
+- 提供“仅状态 / 仅部署 / 仅模块 / 完整已验证流程”菜单。
+
+启动 exploit 前仍必须输入 `RUN` 明确确认。如果 mDNS 没有发现设备，脚本会
+提示输入平板“无线调试”页面显示的 `IP:PORT`。
+
 ### 1. 克隆
 
 ```powershell
@@ -247,10 +261,12 @@ pwsh -File .\scripts\run-ksu.ps1 `
 │           └── honor-HEY2-W09_8.0.0.191/
 │               └── target.h      唯一公开设备 profile
 ├── ksu/                          GPL-2.0 loader 与策略材料
+├── run-wireless.bat              Windows 双击启动器
 ├── scripts/
 │   ├── fetch-bundle.ps1          固定版本下载与 SHA256 校验
 │   ├── build.ps1                 exploit 与 loader 的 NDK 构建
-│   └── run-ksu.ps1               带授权门的 ADB 工作流
+│   ├── run-ksu.ps1               带授权门的 ADB 工作流
+│   └── run-wireless.ps1          无线发现与启动逻辑
 ├── NOTICE
 ├── THIRD_PARTY.md
 ├── LICENSE                       Apache-2.0

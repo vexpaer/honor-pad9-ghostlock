@@ -144,6 +144,21 @@ The repository keeps downloads and compiler temporaries under `bundle/` and
 `.cache/` inside the checkout. The scripts do not install dependencies on the
 system drive.
 
+### Windows one-click launcher
+
+If the repository and NDK are already on the machine, double-click
+[`run-wireless.bat`](run-wireless.bat). It:
+
+- finds `adb`, tries the last wireless target, then discovers
+  `_adb-tls-connect._tcp` through mDNS;
+- verifies the exact HEY2-W09 kernel and build before offering any action;
+- fetches the pinned bundle or builds missing local helpers when needed;
+- offers status-only, stage-only, module-only, and full verified modes.
+
+The launcher still asks for an explicit `RUN` confirmation before starting the
+exploit. If mDNS discovery fails, it prompts for the `IP:PORT` shown on the
+pad's Wireless debugging screen.
+
 ### 1. Clone
 
 ```powershell
@@ -261,10 +276,12 @@ Read [docs/SAFETY.md](docs/SAFETY.md) before running anything. In particular:
 │           └── honor-HEY2-W09_8.0.0.191/
 │               └── target.h      the only public device profile
 ├── ksu/                          GPL-2.0 loader and policy material
+├── run-wireless.bat              double-click Windows launcher
 ├── scripts/
 │   ├── fetch-bundle.ps1          pinned download + SHA256 verification
 │   ├── build.ps1                 NDK build for exploit and loaders
-│   └── run-ksu.ps1               authorization-gated ADB workflow
+│   ├── run-ksu.ps1               authorization-gated ADB workflow
+│   └── run-wireless.ps1          wireless discovery and launcher logic
 ├── NOTICE
 ├── THIRD_PARTY.md
 ├── LICENSE                       Apache-2.0
