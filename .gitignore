@@ -1,0 +1,12 @@
+bundle/
+.cache/
+exploit/build/
+ksu/load_ko
+ksu/kmsg_dumper
+*.log
+*.img
+*.elf
+*.bin
+*.apk
+*.ko
+*.tar.gz

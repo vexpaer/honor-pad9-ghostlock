@@ -1,0 +1,80 @@
+honor-pad9-ghostlock
+Copyright 2026 the honor-pad9-ghostlock contributors
+
+This repository is a device port derived from:
+
+  yakidango-official/GhostLock-H80GT
+  https://github.com/yakidango-official/GhostLock-H80GT
+  tag v0.3.1, commit 33541d1a852a926f782602aa34d79cfbffbd4bb6
+  Apache-2.0
+
+The upstream project in turn derives from:
+
+  NebuSec/CyberMeowfia -- IonStack / CVE-2026-43499
+  https://github.com/NebuSec/CyberMeowfia
+  Apache-2.0
+
+  BuSung-dev/CVE-2026-43499-S25U
+  https://github.com/BuSung-dev/CVE-2026-43499-S25U
+  Apache-2.0
+
+  F-19-F/IonStackQuest3
+  https://github.com/F-19-F/IonStackQuest3
+
+The Apache License 2.0 is retained in LICENSE. Per section 4(d), this NOTICE
+records the changes made by this port.
+
+Changes from the upstream GhostLock-H80GT tree
+--------------------------------------------------------------------------------
+
+ADDED  exploit/src/targets/honor-HEY2-W09_8.0.0.191/target.h
+       HONOR Pad 9 (HEY2-W09 / HNHEY2-Q), MagicOS 8.0.0.191, kernel
+       5.10.252-android12-9-ga431fb50f9a2. Kernel-symbol offsets and
+       structure offsets were measured from the device's symbolized 191
+       kernel and checked against its disassembly.
+
+CHANGED exploit/src/slide.c
+       Made the MCAST carrier geometry target-configurable and added the
+       HEY2 IPv4 ping-socket path. The 191 profile uses the measured
+       carrier shift and socket family.
+
+CHANGED exploit/Makefile
+       Default profile is the HEY2 191 profile. The KSU helper sources now
+       live in ksu/ rather than ksu/tools/.
+
+ADDED  scripts/fetch-bundle.ps1, scripts/build.ps1, scripts/run-ksu.ps1
+       Pinned third-party download and verification, NDK build, and an
+       authorization-gated ADB workflow.
+
+ADDED  docs/ and assets/manager-working.png
+       Verification notes, offset provenance, safety guidance, and a
+       cropped Manager proof screenshot.
+
+REMOVED the upstream per-device target profiles and prebuilt binaries.
+        This public tree contains only the verified HEY2 191 profile and
+        source code. The H80GT LKM, ksud, magiskpolicy, and Manager APK are
+        downloaded by the fetch script and are not redistributed here.
+
+The exploit core remains derived from the upstream IonStack PoC. No claim is
+made that the upstream project or KernelSU officially supports HEY2-W09.
+
+KernelSU and the ksu/ directory
+--------------------------------------------------------------------------------
+
+The files under ksu/ are GPL-2.0 (see ksu/LICENSE) and derive from
+KernelSU's kernel-side policy and loader work:
+
+  https://github.com/tiann/KernelSU
+
+The fetched kernelsu.ko is a third-party H80GT build from the GhostLock-H80GT
+v0.3.1 release. It is not built or redistributed by this repository. The
+fetched ksud and magiskpolicy binaries are userspace components from KernelSU
+and Magisk respectively; they are likewise not redistributed here.
+
+CVE-2026-43499
+--------------------------------------------------------------------------------
+
+A use-after-free in remove_waiter() in kernel/locking/rtmutex.c on the
+futex-requeue-PI proxy-lock rollback path. The upstream fix is commit
+3bfdc63936dd ("rtmutex: Use waiter::task instead of current in
+remove_waiter()"). This repository is a research port, not an upstream fix.

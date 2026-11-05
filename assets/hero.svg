@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="620" viewBox="0 0 1600 620" role="img" aria-labelledby="title desc">
+  <title id="title">honor-pad9-ghostlock</title>
+  <desc id="desc">Monochrome title card for GhostLock KernelSU late-load research on the HONOR Pad 9 HEY2-W09.</desc>
+
+  <rect width="1600" height="620" fill="#070707"/>
+  <rect x="44" y="44" width="1512" height="532" fill="none" stroke="#ffffff" stroke-opacity="0.18"/>
+  <path d="M80 112H1520" stroke="#ffffff" stroke-opacity="0.16"/>
+  <path d="M80 514H1520" stroke="#ffffff" stroke-opacity="0.16"/>
+
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" fill="#8d8d8d">
+    <text x="80" y="82" font-size="11" letter-spacing="2.8">HONOR PAD 9 / HEY2-W09</text>
+    <text x="1520" y="82" font-size="11" text-anchor="end" letter-spacing="2.8">SECURITY RESEARCH / 2026</text>
+  </g>
+
+  <g font-family="'Helvetica Neue', 'Segoe UI', Arial, sans-serif">
+    <text x="76" y="270" fill="#f2f2f2" font-size="150" font-weight="700" letter-spacing="-8">GHOSTLOCK</text>
+    <text x="82" y="325" fill="#a6a6a6" font-size="17" font-weight="600" letter-spacing="5.5">KERNELSU LATE-LOAD / CVE-2026-43499</text>
+    <text x="82" y="378" fill="#d4d4d4" font-size="29" font-weight="400">Ephemeral root on a locked HONOR Pad 9.</text>
+  </g>
+
+  <text x="82" y="414" fill="#6f6f6f" font-size="14" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" letter-spacing="0.7">ONE BOOT. NO PARTITION WRITES. REBOOT TO CLEAN.</text>
+
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
+    <path d="M1120 148V444" stroke="#ffffff" stroke-opacity="0.16"/>
+    <text x="1152" y="154" fill="#f2f2f2" font-size="10" letter-spacing="2.2">CURRENT BOOT</text>
+
+    <circle cx="1120" cy="193" r="3" fill="#f2f2f2"/>
+    <text x="1152" y="188" fill="#6f6f6f" font-size="10" letter-spacing="1.8">01 / TRIGGERED</text>
+    <text x="1152" y="210" fill="#d4d4d4" font-size="14">CVE-2026-43499</text>
+
+    <circle cx="1120" cy="256" r="3" fill="#a6a6a6"/>
+    <text x="1152" y="251" fill="#6f6f6f" font-size="10" letter-spacing="1.8">02 / TEMPORARY</text>
+    <text x="1152" y="273" fill="#d4d4d4" font-size="14">kernel-domain root</text>
+
+    <circle cx="1120" cy="319" r="3" fill="#a6a6a6"/>
+    <text x="1152" y="314" fill="#6f6f6f" font-size="10" letter-spacing="1.8">03 / RESOLVED</text>
+    <text x="1152" y="336" fill="#d4d4d4" font-size="14">208 / 208 symbols</text>
+
+    <circle cx="1120" cy="382" r="3" fill="#f2f2f2"/>
+    <text x="1152" y="377" fill="#6f6f6f" font-size="10" letter-spacing="1.8">04 / WORKING</text>
+    <text x="1152" y="399" fill="#d4d4d4" font-size="14">KernelSU LKM</text>
+  </g>
+
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
+    <text x="80" y="540" fill="#f2f2f2" font-size="26" font-weight="700">208/208</text>
+    <text x="80" y="563" fill="#6f6f6f" font-size="10" letter-spacing="1.6">SYMBOLS RESOLVED</text>
+
+    <path d="M426 528V562" stroke="#ffffff" stroke-opacity="0.16"/>
+    <text x="460" y="540" fill="#f2f2f2" font-size="26" font-weight="700">32601-2</text>
+    <text x="460" y="563" fill="#6f6f6f" font-size="10" letter-spacing="1.6">KERNELSU MANAGER</text>
+
+    <path d="M806 528V562" stroke="#ffffff" stroke-opacity="0.16"/>
+    <text x="840" y="540" fill="#f2f2f2" font-size="26" font-weight="700">u:r:ksu:s0</text>
+    <text x="840" y="563" fill="#6f6f6f" font-size="10" letter-spacing="1.6">SU SELINUX CONTEXT</text>
+
+    <path d="M1186 528V562" stroke="#ffffff" stroke-opacity="0.16"/>
+    <text x="1220" y="540" fill="#f2f2f2" font-size="26" font-weight="700">0</text>
+    <text x="1220" y="563" fill="#6f6f6f" font-size="10" letter-spacing="1.6">PARTITION WRITES</text>
+  </g>
+
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" fill="#555555" font-size="9.5" letter-spacing="0.8">
+    <text x="80" y="601">MAGICOS 8.0.0.191C00E185R2P4 / ANDROID 14 / LINUX 5.10.252-ANDROID12-9-GA431FB50F9A2</text>
+    <text x="1520" y="601" text-anchor="end" fill="#8d8d8d">REBOOT = CLEAN STATE</text>
+  </g>
+</svg>
